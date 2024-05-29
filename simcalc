@@ -1,0 +1,272 @@
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+
+
+class Calculator extends JFrame{
+    JLabel l1,l2;
+    JTextField t1,t2;
+    JButton b1,b2,b3,b4,b5,b6,c1,c2,c3,c4,c5,c6,c7,c8,c9,c10;
+    Calculator()
+    {   setDefaultCloseOperation(EXIT_ON_CLOSE);
+        
+        setLayout(null);
+        getContentPane().setBackground(Color.DARK_GRAY);
+        l1=new JLabel("Simple Calculator");
+        l1.setFont(new Font("Times New Roman",Font.BOLD,30));
+        l1.setForeground(Color.WHITE);
+        l1.setBounds(120,10,300,30);
+        add(l1);
+        t1 = new JTextField(10);
+        t2 = new JTextField(10);
+        b1=new JButton("Add");
+        b2=new JButton("Sub");
+        b3=new JButton("Mul");
+        b4=new JButton("Div");
+        b5=new JButton("Pow");
+        b6=new JButton("Ac");
+        c1=new JButton("1");
+        c2=new JButton("2");
+        c3=new JButton("3");
+        c4=new JButton("4");
+        c5=new JButton("5");
+        c6=new JButton("6");
+        c7=new JButton("7");
+        c8=new JButton("8");
+        c9=new JButton("9");
+        c10=new JButton("0");
+
+        l2=new JLabel();
+        
+
+        t1.setBounds(60,60,120,30);
+        t2.setBounds(60,100,120,30);
+        b1.setBounds(60,140,60,30);
+        b2.setBounds(130,140,60,30);
+        b3.setBounds(60,190,60,30);
+        b4.setBounds(130,190,60,30);
+        b5.setBounds(60,230,60,30);
+        b6.setBounds(130,230,60,30);
+        c1.setBounds(30,270,30,30);
+        c2.setBounds(70,270,30,30);
+        c3.setBounds(110,270,30,30);
+        c4.setBounds(30,310,30,30);
+        c5.setBounds(70,310,30,30);
+        c6.setBounds(110,310,30,30);
+        c7.setBounds(30,350,30,30);
+        c8.setBounds(70,350,30,30);
+        c9.setBounds(110,350,30,30);
+        c10.setBounds(30,390,30,30);
+        
+        l2.setFont(new Font("Times New Roman",Font.BOLD,20));
+        l2.setForeground(Color.MAGENTA);
+        l2.setBounds(250,130,300,30);
+        add(t1);
+        add(t2);
+        add(b1);
+        add(b2);
+        add(b3);
+        add(b4);
+        add(b5);
+        add(b6);
+        add(l2);
+        add(c1);
+        add(c2);
+        add(c3);
+        add(c4);
+        add(c5);
+        add(c6);
+        add(c7);
+        add(c8);
+        add(c9);
+        add(c10);
+        
+
+
+        
+        b1.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent ae)
+            {
+                performOperation("Add");
+            }
+        });
+        b2.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent ae)
+            {
+                performOperation("Sub");
+
+            }
+        });
+        b3.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent ae)
+            {
+                performOperation("Mul");
+
+            }
+        });
+        b4.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent ae)
+            {
+                performOperation("Div");
+
+                }
+                
+             
+            
+        });
+        b5.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent ae)
+            {
+                performOperation("Pow");
+
+            }
+        });
+        b6.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent ae)
+            {
+                t1.setText("");
+                t2.setText("");
+                
+            }
+        });
+        c1.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent ae)
+            {
+                
+                appendText("1");
+            }
+        });
+        c2.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent ae)
+            {
+               
+                appendText("2");
+                
+            }
+        });
+        c3.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent ae)
+            {
+               
+                appendText("3");
+                
+            }
+        });
+        c4.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent ae)
+            {
+               
+                appendText("4");
+                
+            }
+        });
+        c5.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent ae)
+            {
+               
+                appendText("5");
+                
+            }
+        });
+        c6.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent ae)
+            {
+               
+                appendText("6");
+                
+            }
+        });
+        c7.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent ae)
+            {
+               
+                appendText("7");
+                
+            }
+        });
+        c8.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent ae)
+            {
+               
+                appendText("8");
+                
+            }
+        });
+        c9.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent ae)
+            {
+               
+                appendText("9");
+                
+            }
+        });
+        c10.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent ae)
+            {
+               
+                appendText("0");
+                
+            }
+        });
+
+        
+
+    }
+    private void performOperation(String operation) {
+        try {
+            int n1 = Integer.parseInt(t1.getText());
+            int n2 = Integer.parseInt(t2.getText());
+            double result = 0;
+            switch (operation) {
+                case "Add":
+                    result = n1 + n2;
+                    break;
+                case "Sub":
+                    result = n1 - n2;
+                    break;
+                case "Mul":
+                    result = n1 * n2;
+                    break;
+                case "Div":
+                    if (n2 != 0) {
+                        result = (double) n1 / n2;
+                    } else {
+                        l2.setText("Cannot divide by zero");
+                        return;
+                    }
+                    break;
+                case "Pow":
+                    result = Math.pow(n1, n2);
+                    break;
+            }
+            l2.setText(operation + " of two numbers = " + result);
+        } catch (NumberFormatException e) {
+            l2.setText("Invalid input");
+        }
+    }
+    private void appendText(String text){
+        if (t1.isFocusOwner()) {
+            t1.setText(t1.getText()+text);
+        }
+        else if (t2.isFocusOwner()) {
+            t2.setText(t2.getText()+text);
+        }
+    }
+
+
+}
+
+public class simplecalculator {
+    public static void main(String[] args) throws Exception {
+        Calculator c=new Calculator();
+        
+        c.setBounds(1000,1000,500,900);
+        c.setVisible(true);
+    }
+}
